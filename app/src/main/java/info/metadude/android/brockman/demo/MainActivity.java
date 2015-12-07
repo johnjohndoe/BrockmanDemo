@@ -63,11 +63,14 @@ public class MainActivity extends AppCompatActivity {
         if (BuildConfig.DEBUG) {
             interceptors.add(httpLoggingInterceptor);
         }
-        mStreamsService = ApiModule.provideStreamsService(interceptors);
+        mStreamsService = ApiModule.provideStreamsService(
+                BuildConfig.STREAMING_API_BASE_URL_DEBUG, interceptors);
     }
 
     private void fetchOffers() {
-        Call<List<Offer>> offersCall = mStreamsService.getOffers();
+        Call<List<Offer>> offersCall = mStreamsService.getOffers(
+                BuildConfig.STREAMING_API_OFFERS_PATH_DEBUG
+        );
         offersCall.enqueue(new Callback<List<Offer>>() {
             @Override
             public void onResponse(Response<List<Offer>> response, Retrofit retrofit) {
