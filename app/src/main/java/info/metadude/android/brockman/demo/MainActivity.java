@@ -127,6 +127,8 @@ public class MainActivity extends AppCompatActivity {
             mOffersRecyclerView.setVisibility(View.GONE);
             if (!TextUtils.isEmpty(errorMessage)) {
                 mOffersEmptyView.setText(errorMessage);
+            } else {
+                mOffersEmptyView.setText(R.string.no_data_default);
             }
             mOffersEmptyView.setVisibility(View.VISIBLE);
         } else {
