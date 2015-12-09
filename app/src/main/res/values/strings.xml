@@ -2,5 +2,6 @@
 <resources>
 
     <string name="app_name">Brockman Demo</string>
+    <string name="no_data_default">Sorry, no data to show</string>
 
 </resources>

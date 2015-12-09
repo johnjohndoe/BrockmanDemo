@@ -4,5 +4,7 @@
     <color name="colorPrimary">#e3d115</color>
     <color name="colorPrimaryDark">#8e3e33</color>
     <color name="colorAccent">#6c90aa</color>
+    <color name="offers_empty_text">@color/colorPrimary</color>
+    <color name="offers_empty_background">@color/colorAccent</color>
 
 </resources>

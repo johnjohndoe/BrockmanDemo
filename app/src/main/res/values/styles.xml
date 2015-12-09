@@ -8,4 +8,15 @@
         <item name="android:textColorLink">@color/colorAccent</item>
     </style>
 
+    <style name="OffersEmpty" parent="TextAppearance.AppCompat.Medium">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@color/offers_empty_background</item>
+        <item name="android:gravity">center</item>
+        <item name="android:padding">@dimen/offer_empty_padding</item>
+        <item name="android:text">@string/no_data_default</item>
+        <item name="android:textColor">@color/offers_empty_text</item>
+        <item name="android:visibility">visible</item>
+    </style>
+
 </resources>
