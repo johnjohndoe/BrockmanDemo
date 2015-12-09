@@ -53,8 +53,6 @@ public class MainActivity extends AppCompatActivity {
         mOffersRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mOffersRecyclerView.setHasFixedSize(true);
         toggleVisibility(null, null);
-        updateOffersView(null);
-
         initStreamsService();
         fetchOffers();
     }
