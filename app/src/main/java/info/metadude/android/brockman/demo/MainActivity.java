@@ -59,9 +59,9 @@ public class MainActivity extends AppCompatActivity {
 
     private void initStreamsService() {
         HttpLoggingInterceptor httpLoggingInterceptor = new HttpLoggingInterceptor();
-        httpLoggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BASIC);
         List<Interceptor> interceptors = new ArrayList<>(1);
         if (BuildConfig.DEBUG) {
+            httpLoggingInterceptor.setLevel(HttpLoggingInterceptor.Level.HEADERS);
             interceptors.add(httpLoggingInterceptor);
         }
         mStreamsService = ApiModule.provideStreamsService(
