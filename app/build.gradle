@@ -36,6 +36,6 @@ dependencies {
     compile "com.android.support:cardview-v7:${supportLibVersion}"
     compile "com.jakewharton:butterknife:7.0.1"
     compile "com.github.johnjohndoe:Brockman:31413c36a8a6302fa7685515dfeae706b55595c8"
-    compile "com.squareup.okhttp:okhttp:2.6.0"
-    compile "com.squareup.okhttp:logging-interceptor:2.6.0"
+    compile "com.squareup.okhttp:okhttp:2.7.0"
+    compile "com.squareup.okhttp:logging-interceptor:2.7.0"
 }
