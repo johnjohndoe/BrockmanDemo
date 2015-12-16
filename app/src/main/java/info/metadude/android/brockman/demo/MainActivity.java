@@ -11,7 +11,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.TextView;
 
-import com.squareup.okhttp.Interceptor;
+import com.squareup.okhttp.OkHttpClient;
 import com.squareup.okhttp.logging.HttpLoggingInterceptor;
 
 import java.util.ArrayList;
@@ -58,14 +58,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initStreamsService() {
-        HttpLoggingInterceptor httpLoggingInterceptor = new HttpLoggingInterceptor();
-        List<Interceptor> interceptors = new ArrayList<>(1);
+        OkHttpClient okHttpClient = new OkHttpClient();
         if (BuildConfig.DEBUG) {
+            HttpLoggingInterceptor httpLoggingInterceptor = new HttpLoggingInterceptor();
             httpLoggingInterceptor.setLevel(HttpLoggingInterceptor.Level.HEADERS);
-            interceptors.add(httpLoggingInterceptor);
+            okHttpClient.interceptors().add(httpLoggingInterceptor);
         }
         mStreamsService = ApiModule.provideStreamsService(
-                BuildConfig.STREAMING_API_BASE_URL_DEBUG, interceptors);
+                BuildConfig.STREAMING_API_BASE_URL_DEBUG, okHttpClient);
     }
 
     private void fetchOffers() {
