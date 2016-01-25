@@ -35,7 +35,7 @@ dependencies {
     compile "com.android.support:recyclerview-v7:${supportLibVersion}"
     compile "com.android.support:cardview-v7:${supportLibVersion}"
     compile "com.jakewharton:butterknife:7.0.1"
-    compile "com.github.johnjohndoe:Brockman:06e68903ab79aaa30c050b222d46a19fa0a5defd"
+    compile "com.github.johnjohndoe:Brockman:965bbf8434b7722c24eb0f896fac3dfc32f1a15d"
     compile "com.squareup.okhttp:okhttp:2.7.2"
     compile "com.squareup.okhttp:logging-interceptor:2.7.2"
 }
