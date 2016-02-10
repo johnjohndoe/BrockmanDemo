@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
         if (BuildConfig.DEBUG) {
             HttpLoggingInterceptor httpLoggingInterceptor = new HttpLoggingInterceptor();
             httpLoggingInterceptor.setLevel(HttpLoggingInterceptor.Level.HEADERS);
-            okHttpClient.interceptors().add(httpLoggingInterceptor);
+            okHttpClient.networkInterceptors().add(httpLoggingInterceptor);
         }
         mStreamsService = ApiModule.provideStreamsService(
                 BuildConfig.STREAMING_API_BASE_URL_DEBUG, okHttpClient);
