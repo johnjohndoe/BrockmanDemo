@@ -11,9 +11,6 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.TextView;
 
-import com.squareup.okhttp.OkHttpClient;
-import com.squareup.okhttp.logging.HttpLoggingInterceptor;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,10 +21,11 @@ import info.metadude.java.library.brockman.StreamsService;
 import info.metadude.java.library.brockman.models.Offer;
 import info.metadude.java.library.brockman.models.Room;
 import info.metadude.java.library.brockman.models.Stream;
-import retrofit.Call;
-import retrofit.Callback;
-import retrofit.Response;
-import retrofit.Retrofit;
+import okhttp3.OkHttpClient;
+import okhttp3.logging.HttpLoggingInterceptor;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -58,12 +56,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initStreamsService() {
-        OkHttpClient okHttpClient = new OkHttpClient();
+        OkHttpClient.Builder builder = new OkHttpClient.Builder();
         if (BuildConfig.DEBUG) {
             HttpLoggingInterceptor httpLoggingInterceptor = new HttpLoggingInterceptor();
             httpLoggingInterceptor.setLevel(HttpLoggingInterceptor.Level.HEADERS);
-            okHttpClient.networkInterceptors().add(httpLoggingInterceptor);
+            builder.addNetworkInterceptor(httpLoggingInterceptor);
         }
+        OkHttpClient okHttpClient = builder.build();
         mStreamsService = ApiModule.provideStreamsService(
                 BuildConfig.STREAMING_API_BASE_URL_DEBUG, okHttpClient);
     }
@@ -74,17 +73,16 @@ public class MainActivity extends AppCompatActivity {
         );
         offersCall.enqueue(new Callback<List<Offer>>() {
             @Override
-            public void onResponse(Response<List<Offer>> response, Retrofit retrofit) {
-                if (response.isSuccess()) {
+            public void onResponse(Call<List<Offer>> call, Response<List<Offer>> response) {
+                if (response.isSuccessful()) {
                     onGetOffersResponseSuccess(response.body());
                 } else {
-                    com.squareup.okhttp.Response raw = response.raw();
-                    onGetOffersResponseFailure("HTTP " + raw.code() + ": " + raw.message());
+                    onGetOffersResponseFailure("HTTP " + response.code() + ": " + response.message());
                 }
             }
 
             @Override
-            public void onFailure(Throwable t) {
+            public void onFailure(Call<List<Offer>> call, Throwable t) {
                 onCallbackFailure(t.getMessage());
                 t.printStackTrace();
             }
