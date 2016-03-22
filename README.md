@@ -9,7 +9,7 @@ Android project to demonstrate the usage of the [Brockman library][brockman-libr
 
 ## Usage
 
-There is an **app module** to checkout a working a example.
+There is an **app module** to checkout a working example.
 
 
 ### Gradle build
