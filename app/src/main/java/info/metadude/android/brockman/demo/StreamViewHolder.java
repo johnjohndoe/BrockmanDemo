@@ -14,6 +14,7 @@ import android.widget.TextView;
 import java.util.List;
 
 import butterknife.Bind;
+import butterknife.BindString;
 import butterknife.ButterKnife;
 import info.metadude.java.library.brockman.models.Stream;
 import info.metadude.java.library.brockman.models.Url;
@@ -38,6 +39,12 @@ public class StreamViewHolder extends RecyclerView.ViewHolder {
 
     @Bind(R.id.stream_urls)
     LinearLayout urlsLayout;
+
+    @BindString(R.string.translation_available)
+    String translationAvailable;
+
+    @BindString(R.string.translation_not_available)
+    String translationNotAvailable;
 
     Context context;
 
@@ -101,7 +108,7 @@ public class StreamViewHolder extends RecyclerView.ViewHolder {
 
     @NonNull
     private String getTranslationText(boolean isTranslated) {
-        return isTranslated ? "with translation" : "without translation";
+        return isTranslated ? translationAvailable : translationNotAvailable;
     }
 
     @NonNull
