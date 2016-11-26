@@ -64,7 +64,10 @@
             android:id="@+id/stream_urls"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            tools:background="@android:color/holo_green_light"
+            tools:layout_height="120dp"
+            tools:layout_width="match_parent">
 
             <!-- URL views are added at runtime -->
 
