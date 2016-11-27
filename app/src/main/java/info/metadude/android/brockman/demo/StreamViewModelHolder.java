@@ -16,11 +16,11 @@ import java.util.List;
 import butterknife.Bind;
 import butterknife.BindString;
 import butterknife.ButterKnife;
-import info.metadude.java.library.brockman.models.Stream;
+import info.metadude.android.brockman.demo.models.StreamViewModel;
 import info.metadude.java.library.brockman.models.Url;
 import info.metadude.java.library.brockman.models.VideoSize;
 
-public class StreamViewHolder extends RecyclerView.ViewHolder {
+class StreamViewModelHolder extends RecyclerView.ViewHolder {
 
     @Bind(R.id.stream_slug)
     TextView slugTextView;
@@ -46,31 +46,31 @@ public class StreamViewHolder extends RecyclerView.ViewHolder {
     @BindString(R.string.translation_not_available)
     String translationNotAvailable;
 
-    Context context;
+    private Context context;
 
-    static final LinearLayout.LayoutParams LAYOUT_PARAMS = new LinearLayout.LayoutParams(
+    private static final LinearLayout.LayoutParams LAYOUT_PARAMS = new LinearLayout.LayoutParams(
             LinearLayout.LayoutParams.WRAP_CONTENT,
             LinearLayout.LayoutParams.WRAP_CONTENT);
 
-    public StreamViewHolder(View itemView) {
+    StreamViewModelHolder(View itemView) {
         super(itemView);
         context = itemView.getContext();
         ButterKnife.bind(this, itemView);
     }
 
-    public void bind(Stream stream) {
-        slugTextView.setText(stream.slug);
-        displayTextView.setText(stream.display);
-        typeTextView.setText(stream.type.toString());
-        isTranslatedTextView.setText(getTranslationText(stream.isTranslated));
-        VideoSize videoSize = stream.videoSize;
+    void bind(StreamViewModel streamViewModel) {
+        slugTextView.setText(streamViewModel.streamSlug);
+        displayTextView.setText(streamViewModel.streamDisplay);
+        typeTextView.setText(streamViewModel.streamType.toString());
+        isTranslatedTextView.setText(getTranslationText(streamViewModel.streamIsTranslated));
+        VideoSize videoSize = streamViewModel.streamVideoSize;
         if (videoSize == null) {
             videoSizeTextView.setVisibility(View.GONE);
         } else {
             videoSizeTextView.setVisibility(View.VISIBLE);
             videoSizeTextView.setText(getVideoSizeText(videoSize));
         }
-        List<Url> urls = stream.urls;
+        List<Url> urls = streamViewModel.streamUrls;
         urlsLayout.removeAllViews();
         if (urls == null) {
             urlsLayout.setVisibility(View.GONE);
