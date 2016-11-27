@@ -27,8 +27,9 @@ android {
 }
 
 ext {
-    supportLibVersion = "25.0.0"
     okHttpVersion = "3.4.2"
+    picassoVersion = "2.5.2"
+    supportLibVersion = "25.0.0"
 }
 
 dependencies {
@@ -39,4 +40,5 @@ dependencies {
     compile "com.github.johnjohndoe:Brockman:50825c5b17b8f2a9f7ec366a21b97adb5862cd68"
     compile "com.squareup.okhttp3:okhttp:${okHttpVersion}"
     compile "com.squareup.okhttp3:logging-interceptor:${okHttpVersion}"
+    compile "com.squareup.picasso:picasso:${picassoVersion}"
 }

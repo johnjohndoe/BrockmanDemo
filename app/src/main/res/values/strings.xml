@@ -3,6 +3,7 @@
 
     <string name="app_name">Brockman Demo</string>
     <string name="no_data_default">Sorry, no data to show</string>
+    <string name="thumbnail_description">Video stream thumbnail</string>
     <string name="translation_available">with translation</string>
     <string name="translation_not_available">without translation</string>
     <string name="video_dimensions">

@@ -4,12 +4,16 @@ import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v4.widget.Space;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.text.method.LinkMovementMethod;
 import android.text.util.Linkify;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -36,6 +40,9 @@ class StreamViewModelHolder extends RecyclerView.ViewHolder {
 
     @Bind(R.id.stream_video_size)
     TextView videoSizeTextView;
+
+    @Bind(R.id.room_thumbnail)
+    ImageView thumbnailView;
 
     @Bind(R.id.stream_urls)
     LinearLayout urlsLayout;
@@ -69,6 +76,17 @@ class StreamViewModelHolder extends RecyclerView.ViewHolder {
         } else {
             videoSizeTextView.setVisibility(View.VISIBLE);
             videoSizeTextView.setText(getVideoSizeText(videoSize));
+        }
+        String thumbnailUrl = streamViewModel.roomThumb;
+        if (TextUtils.isEmpty(thumbnailUrl)) {
+            thumbnailView.setVisibility(View.GONE);
+        } else {
+            Picasso.with(context)
+                    .load(thumbnailUrl)
+                    .resize(213, 120)
+                    .centerCrop()
+                    .into(thumbnailView);
+            thumbnailView.setVisibility(View.VISIBLE);
         }
         List<Url> urls = streamViewModel.streamUrls;
         urlsLayout.removeAllViews();
