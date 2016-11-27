@@ -61,6 +61,20 @@
 
         </LinearLayout>
 
+        <ImageView
+            android:id="@+id/room_thumbnail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="8dp"
+            android:contentDescription="@string/thumbnail_description"
+            android:visibility="gone"
+            tools:background="@android:color/holo_blue_bright"
+            tools:layout_height="50dp"
+            tools:layout_width="100dp"
+            tools:src="@android:drawable/sym_def_app_icon"
+            tools:visibility="visible" />
+
         <LinearLayout
             android:id="@+id/stream_urls"
             android:layout_width="wrap_content"
@@ -73,6 +87,19 @@
             <!-- URL views are added at runtime -->
 
         </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginBottom="16dp"
+            android:layout_marginTop="16dp"
+            android:background="#c5c5c5"/>
+
+        <TextView
+            android:id="@+id/room_link"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="https://streaming.media.ccc.de/ccc/Saal1/" />
 
     </LinearLayout>
 

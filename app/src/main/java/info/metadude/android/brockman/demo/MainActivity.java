@@ -16,6 +16,8 @@ import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import info.metadude.android.brockman.demo.models.StreamViewModel;
+import info.metadude.android.brockman.demo.models.StreamViewModelBuilder;
 import info.metadude.java.library.brockman.ApiModule;
 import info.metadude.java.library.brockman.StreamsService;
 import info.metadude.java.library.brockman.models.Offer;
@@ -106,18 +108,41 @@ public class MainActivity extends AppCompatActivity {
         if (offers == null) {
             return;
         }
-        List<Stream> streams = new ArrayList<>(10);
+        List<StreamViewModel> streamViewModels = getStreamViewModels(offers);
+        StreamViewModelsAdapter offersAdapter = new StreamViewModelsAdapter(streamViewModels);
+        mOffersRecyclerView.setAdapter(offersAdapter);
+    }
+
+    @NonNull
+    private List<StreamViewModel> getStreamViewModels(List<Offer> offers) {
+        List<StreamViewModel> streamViewModels = new ArrayList<>(10);
         for (Offer offer : offers) {
             for (Room room : offer.rooms) {
                 if (room.streams != null) {
                     for (Stream stream : room.streams) {
-                        streams.add(stream);
+                        StreamViewModel model = getStreamViewModel(room, stream);
+                        streamViewModels.add(model);
                     }
                 }
             }
         }
-        StreamsAdapter offersAdapter = new StreamsAdapter(streams);
-        mOffersRecyclerView.setAdapter(offersAdapter);
+        return streamViewModels;
+    }
+
+    private StreamViewModel getStreamViewModel(Room room, Stream stream) {
+        StreamViewModelBuilder builder = new StreamViewModelBuilder();
+        builder.setRoomDisplay(room.display);
+        builder.setRoomLink(room.link);
+        builder.setRoomScheduleName(room.scheduleName);
+        builder.setRoomSlug(room.slug);
+        builder.setRoomThumb(room.thumb);
+        builder.setStreamDisplay(stream.display);
+        builder.setStreamIsTranslated(stream.isTranslated);
+        builder.setStreamSlug(stream.slug);
+        builder.setStreamType(stream.type);
+        builder.setStreamUrls(stream.urls);
+        builder.setStreamVideoSize(stream.videoSize);
+        return builder.build();
     }
 
     private void toggleVisibility(@Nullable List<Offer> offers, @Nullable String errorMessage) {

@@ -3,10 +3,14 @@
 
     <string name="app_name">Brockman Demo</string>
     <string name="no_data_default">Sorry, no data to show</string>
+    <string name="thumbnail_description">Video stream thumbnail</string>
     <string name="translation_available">with translation</string>
     <string name="translation_not_available">without translation</string>
     <string name="video_dimensions">
         <xliff:g example="1920" id="width">%1$d</xliff:g> x <xliff:g example="1080" id="height">%2$d</xliff:g>
+    </string>
+    <string name="room_link">
+        Website link: <xliff:g example="https://streaming.media.ccc.de/ccc/Saal1/" id="url">%1$s</xliff:g>
     </string>
 
 </resources>

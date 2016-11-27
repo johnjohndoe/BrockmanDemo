@@ -4,23 +4,27 @@ import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v4.widget.Space;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.text.method.LinkMovementMethod;
 import android.text.util.Linkify;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
 import butterknife.Bind;
 import butterknife.BindString;
 import butterknife.ButterKnife;
-import info.metadude.java.library.brockman.models.Stream;
+import info.metadude.android.brockman.demo.models.StreamViewModel;
 import info.metadude.java.library.brockman.models.Url;
 import info.metadude.java.library.brockman.models.VideoSize;
 
-public class StreamViewHolder extends RecyclerView.ViewHolder {
+class StreamViewModelHolder extends RecyclerView.ViewHolder {
 
     @Bind(R.id.stream_slug)
     TextView slugTextView;
@@ -37,8 +41,14 @@ public class StreamViewHolder extends RecyclerView.ViewHolder {
     @Bind(R.id.stream_video_size)
     TextView videoSizeTextView;
 
+    @Bind(R.id.room_thumbnail)
+    ImageView thumbnailView;
+
     @Bind(R.id.stream_urls)
     LinearLayout urlsLayout;
+
+    @Bind(R.id.room_link)
+    TextView roomLinkTextView;
 
     @BindString(R.string.translation_available)
     String translationAvailable;
@@ -46,31 +56,42 @@ public class StreamViewHolder extends RecyclerView.ViewHolder {
     @BindString(R.string.translation_not_available)
     String translationNotAvailable;
 
-    Context context;
+    private Context context;
 
-    static final LinearLayout.LayoutParams LAYOUT_PARAMS = new LinearLayout.LayoutParams(
+    private static final LinearLayout.LayoutParams LAYOUT_PARAMS = new LinearLayout.LayoutParams(
             LinearLayout.LayoutParams.WRAP_CONTENT,
             LinearLayout.LayoutParams.WRAP_CONTENT);
 
-    public StreamViewHolder(View itemView) {
+    StreamViewModelHolder(View itemView) {
         super(itemView);
         context = itemView.getContext();
         ButterKnife.bind(this, itemView);
     }
 
-    public void bind(Stream stream) {
-        slugTextView.setText(stream.slug);
-        displayTextView.setText(stream.display);
-        typeTextView.setText(stream.type.toString());
-        isTranslatedTextView.setText(getTranslationText(stream.isTranslated));
-        VideoSize videoSize = stream.videoSize;
+    void bind(StreamViewModel streamViewModel) {
+        slugTextView.setText(streamViewModel.streamSlug);
+        displayTextView.setText(streamViewModel.streamDisplay);
+        typeTextView.setText(streamViewModel.streamType.toString());
+        isTranslatedTextView.setText(getTranslationText(streamViewModel.streamIsTranslated));
+        VideoSize videoSize = streamViewModel.streamVideoSize;
         if (videoSize == null) {
             videoSizeTextView.setVisibility(View.GONE);
         } else {
             videoSizeTextView.setVisibility(View.VISIBLE);
             videoSizeTextView.setText(getVideoSizeText(videoSize));
         }
-        List<Url> urls = stream.urls;
+        String thumbnailUrl = streamViewModel.roomThumb;
+        if (TextUtils.isEmpty(thumbnailUrl)) {
+            thumbnailView.setVisibility(View.GONE);
+        } else {
+            Picasso.with(context)
+                    .load(thumbnailUrl)
+                    .resize(213, 120)
+                    .centerCrop()
+                    .into(thumbnailView);
+            thumbnailView.setVisibility(View.VISIBLE);
+        }
+        List<Url> urls = streamViewModel.streamUrls;
         urlsLayout.removeAllViews();
         if (urls == null) {
             urlsLayout.setVisibility(View.GONE);
@@ -84,6 +105,10 @@ public class StreamViewHolder extends RecyclerView.ViewHolder {
             }
             urlsLayout.setVisibility(View.VISIBLE);
         }
+        String roomLink = context.getString(R.string.room_link, streamViewModel.roomLink);
+        roomLinkTextView.setMovementMethod(LinkMovementMethod.getInstance());
+        roomLinkTextView.setText(roomLink);
+        Linkify.addLinks(roomLinkTextView, Linkify.WEB_URLS);
     }
 
     private void addUrlViews(ViewGroup.LayoutParams layoutParams, Url url) {
