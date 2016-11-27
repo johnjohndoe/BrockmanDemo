@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
     <string name="app_name">Brockman Demo</string>
     <string name="no_data_default">Sorry, no data to show</string>
     <string name="translation_available">with translation</string>
     <string name="translation_not_available">without translation</string>
+    <string name="video_dimensions">
+        <xliff:g example="1920" id="width">%1$d</xliff:g> x <xliff:g example="1080" id="height">%2$d</xliff:g>
+    </string>
 
 </resources>

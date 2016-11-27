@@ -113,7 +113,7 @@ public class StreamViewHolder extends RecyclerView.ViewHolder {
 
     @NonNull
     private String getVideoSizeText(@NonNull VideoSize videoSize) {
-        return videoSize.width + " x " + videoSize.height;
+        return context.getString(R.string.video_dimensions, videoSize.width, videoSize.height);
     }
 
 }
