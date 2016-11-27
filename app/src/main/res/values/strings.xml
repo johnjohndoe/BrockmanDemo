@@ -9,5 +9,8 @@
     <string name="video_dimensions">
         <xliff:g example="1920" id="width">%1$d</xliff:g> x <xliff:g example="1080" id="height">%2$d</xliff:g>
     </string>
+    <string name="room_link">
+        Website link: <xliff:g example="https://streaming.media.ccc.de/ccc/Saal1/" id="url">%1$s</xliff:g>
+    </string>
 
 </resources>

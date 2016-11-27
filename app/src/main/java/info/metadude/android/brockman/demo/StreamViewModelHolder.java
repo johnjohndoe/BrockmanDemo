@@ -47,6 +47,9 @@ class StreamViewModelHolder extends RecyclerView.ViewHolder {
     @Bind(R.id.stream_urls)
     LinearLayout urlsLayout;
 
+    @Bind(R.id.room_link)
+    TextView roomLinkTextView;
+
     @BindString(R.string.translation_available)
     String translationAvailable;
 
@@ -102,6 +105,10 @@ class StreamViewModelHolder extends RecyclerView.ViewHolder {
             }
             urlsLayout.setVisibility(View.VISIBLE);
         }
+        String roomLink = context.getString(R.string.room_link, streamViewModel.roomLink);
+        roomLinkTextView.setMovementMethod(LinkMovementMethod.getInstance());
+        roomLinkTextView.setText(roomLink);
+        Linkify.addLinks(roomLinkTextView, Linkify.WEB_URLS);
     }
 
     private void addUrlViews(ViewGroup.LayoutParams layoutParams, Url url) {
