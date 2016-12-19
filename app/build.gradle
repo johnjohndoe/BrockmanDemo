@@ -29,7 +29,7 @@ android {
 ext {
     okHttpVersion = "3.5.0"
     picassoVersion = "2.5.2"
-    supportLibVersion = "25.0.0"
+    supportLibVersion = "25.1.0"
 }
 
 dependencies {
