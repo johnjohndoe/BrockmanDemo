@@ -20,6 +20,7 @@ import info.metadude.android.brockman.demo.models.StreamViewModel;
 import info.metadude.android.brockman.demo.models.StreamViewModelBuilder;
 import info.metadude.java.library.brockman.ApiModule;
 import info.metadude.java.library.brockman.StreamsService;
+import info.metadude.java.library.brockman.models.Group;
 import info.metadude.java.library.brockman.models.Offer;
 import info.metadude.java.library.brockman.models.Room;
 import info.metadude.java.library.brockman.models.Stream;
@@ -117,11 +118,13 @@ public class MainActivity extends AppCompatActivity {
     private List<StreamViewModel> getStreamViewModels(List<Offer> offers) {
         List<StreamViewModel> streamViewModels = new ArrayList<>(10);
         for (Offer offer : offers) {
-            for (Room room : offer.rooms) {
-                if (room.streams != null) {
-                    for (Stream stream : room.streams) {
-                        StreamViewModel model = getStreamViewModel(room, stream);
-                        streamViewModels.add(model);
+            for (Group group : offer.groups) {
+                for (Room room : group.rooms) {
+                    if (room.streams != null) {
+                        for (Stream stream : room.streams) {
+                            StreamViewModel model = getStreamViewModel(room, stream);
+                            streamViewModels.add(model);
+                        }
                     }
                 }
             }
