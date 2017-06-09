@@ -39,7 +39,7 @@ dependencies {
     compile "com.android.support:cardview-v7:${supportLibVersion}"
     compile "com.jakewharton:butterknife:${butterknifeVersion}"
     annotationProcessor "com.jakewharton:butterknife-compiler:${butterknifeVersion}"
-    compile "com.github.johnjohndoe:Brockman:b6cd736ab0a5882b2251b0a62b92f0e69f09827d"
+    compile "com.github.johnjohndoe:Brockman:bedeb5826f7ef9f0a428dd90207d4df75ef57083"
     compile "com.squareup.okhttp3:okhttp:${okHttpVersion}"
     compile "com.squareup.okhttp3:logging-interceptor:${okHttpVersion}"
     compile "com.squareup.picasso:picasso:${picassoVersion}"
