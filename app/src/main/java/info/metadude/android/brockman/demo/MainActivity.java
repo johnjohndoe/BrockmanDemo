@@ -14,7 +14,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import info.metadude.android.brockman.demo.models.StreamViewModel;
 import info.metadude.android.brockman.demo.models.StreamViewModelBuilder;
@@ -32,10 +32,10 @@ import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
 
-    @Bind(R.id.offers_recycler_view)
+    @BindView(R.id.offers_recycler_view)
     RecyclerView mOffersRecyclerView;
 
-    @Bind(R.id.offers_empty)
+    @BindView(R.id.offers_empty)
     TextView mOffersEmptyView;
 
     private StreamsService mStreamsService;

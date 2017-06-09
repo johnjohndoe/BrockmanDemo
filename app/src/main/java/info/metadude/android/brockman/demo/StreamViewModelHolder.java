@@ -17,8 +17,8 @@ import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
-import butterknife.Bind;
 import butterknife.BindString;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import info.metadude.android.brockman.demo.models.StreamViewModel;
 import info.metadude.java.library.brockman.models.Url;
@@ -26,28 +26,28 @@ import info.metadude.java.library.brockman.models.VideoSize;
 
 class StreamViewModelHolder extends RecyclerView.ViewHolder {
 
-    @Bind(R.id.stream_slug)
+    @BindView(R.id.stream_slug)
     TextView slugTextView;
 
-    @Bind(R.id.stream_display)
+    @BindView(R.id.stream_display)
     TextView displayTextView;
 
-    @Bind(R.id.stream_type)
+    @BindView(R.id.stream_type)
     TextView typeTextView;
 
-    @Bind(R.id.stream_is_translated)
+    @BindView(R.id.stream_is_translated)
     TextView isTranslatedTextView;
 
-    @Bind(R.id.stream_video_size)
+    @BindView(R.id.stream_video_size)
     TextView videoSizeTextView;
 
-    @Bind(R.id.room_thumbnail)
+    @BindView(R.id.room_thumbnail)
     ImageView thumbnailView;
 
-    @Bind(R.id.stream_urls)
+    @BindView(R.id.stream_urls)
     LinearLayout urlsLayout;
 
-    @Bind(R.id.room_link)
+    @BindView(R.id.room_link)
     TextView roomLinkTextView;
 
     @BindString(R.string.translation_available)
