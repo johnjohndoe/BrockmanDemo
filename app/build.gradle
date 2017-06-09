@@ -28,7 +28,7 @@ android {
 
 ext {
     butterknifeVersion = "7.0.1"
-    okHttpVersion = "3.5.0"
+    okHttpVersion = "3.8.0"
     picassoVersion = "2.5.2"
     supportLibVersion = "25.1.0"
 }
