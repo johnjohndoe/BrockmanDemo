@@ -1,4 +1,8 @@
+
 language: android
+dist: trusty
+sudo: required
+group: edge
 
 jdk:
   - oraclejdk8
@@ -23,8 +27,8 @@ before_script:
 
   # Disable services enabled by default
   # http://docs.travis-ci.com/user/database-setup/#MySQL
-  - sudo /etc/init.d/mysql stop
-  - sudo /etc/init.d/postgresql stop
+  # - sudo /etc/init.d/mysql stop
+  # - sudo /etc/init.d/postgresql stop
 
   # Ensure Gradle wrapper is executable
   - chmod +x gradlew
