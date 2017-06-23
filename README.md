@@ -11,6 +11,12 @@ Android project to demonstrate the usage of the [Brockman library][brockman-libr
 
 There is an **app module** to checkout a working example.
 
+Currently, this demo is configured to read a static JSON file. If you want to target
+the live API of the CCC please configure the following URL in _app/build.gradle_:
+
+- `STREAMING_API_BASE_URL_DEBUG`: `http://streaming.media.ccc.de`
+- `STREAMING_API_OFFERS_PATH_DEBUG`: `/streams/v2.json`
+
 
 ### Gradle build
 
