@@ -10,17 +10,27 @@ android {
         targetSdkVersion 25
         versionCode 1
         versionName "1.0.0"
-        // Configuration
-        buildConfigField "String", "STREAMING_API_BASE_URL_DEBUG",
-                "\"https://gist.githubusercontent.com\""
-        buildConfigField "String", "STREAMING_API_OFFERS_PATH_DEBUG",
-                "\"/johnjohndoe/617bbfa2ac36f5148a049548b419e299/raw/7ab4e206f19ed4d63a67917fe6e3a15a96218ac9/streams-v2.json\""
     }
 
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    productFlavors {
+        dev {
+            buildConfigField "String", "STREAMING_API_BASE_URL",
+                    "\"http://gist.githubusercontent.com\""
+            buildConfigField "String", "STREAMING_API_OFFERS_PATH",
+                    "\"/johnjohndoe/617bbfa2ac36f5148a049548b419e299/raw/7ab4e206f19ed4d63a67917fe6e3a15a96218ac9/streams-v2.json\""
+        }
+        live {
+            buildConfigField "String", "STREAMING_API_BASE_URL",
+                    "\"http://streaming.media.ccc.de\""
+            buildConfigField "String", "STREAMING_API_OFFERS_PATH",
+                    "\"/streams/v2.json\""
         }
     }
 

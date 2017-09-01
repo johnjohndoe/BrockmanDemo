@@ -67,12 +67,12 @@ public class MainActivity extends AppCompatActivity {
         }
         OkHttpClient okHttpClient = builder.build();
         mStreamsService = ApiModule.provideStreamsService(
-                BuildConfig.STREAMING_API_BASE_URL_DEBUG, okHttpClient);
+                BuildConfig.STREAMING_API_BASE_URL, okHttpClient);
     }
 
     private void fetchOffers() {
         Call<List<Offer>> offersCall = mStreamsService.getOffers(
-                BuildConfig.STREAMING_API_OFFERS_PATH_DEBUG
+                BuildConfig.STREAMING_API_OFFERS_PATH
         );
         offersCall.enqueue(new Callback<List<Offer>>() {
             @Override
