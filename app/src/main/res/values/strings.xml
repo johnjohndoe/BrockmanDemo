@@ -12,5 +12,6 @@
     <string name="room_link">
         Website link: <xliff:g example="https://streaming.media.ccc.de/ccc/Saal1/" id="url">%1$s</xliff:g>
     </string>
+    <string name="action_update">Update</string>
 
 </resources>
