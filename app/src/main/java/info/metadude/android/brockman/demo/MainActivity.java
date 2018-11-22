@@ -150,19 +150,19 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private StreamViewModel getStreamViewModel(Room room, Stream stream) {
-        StreamViewModelBuilder builder = new StreamViewModelBuilder();
-        builder.setRoomDisplay(room.display);
-        builder.setRoomLink(room.link);
-        builder.setRoomScheduleName(room.scheduleName);
-        builder.setRoomSlug(room.slug);
-        builder.setRoomThumb(room.thumb);
-        builder.setStreamDisplay(stream.display);
-        builder.setStreamIsTranslated(stream.isTranslated);
-        builder.setStreamSlug(stream.slug);
-        builder.setStreamType(stream.type);
-        builder.setStreamUrls(stream.urls);
-        builder.setStreamVideoSize(stream.videoSize);
-        return builder.build();
+        return new StreamViewModelBuilder()
+                .setRoomDisplay(room.display)
+                .setRoomLink(room.link)
+                .setRoomScheduleName(room.scheduleName)
+                .setRoomSlug(room.slug)
+                .setRoomThumb(room.thumb)
+                .setStreamDisplay(stream.display)
+                .setStreamIsTranslated(stream.isTranslated)
+                .setStreamSlug(stream.slug)
+                .setStreamType(stream.type)
+                .setStreamUrls(stream.urls)
+                .setStreamVideoSize(stream.videoSize)
+                .build();
     }
 
     private void toggleVisibility(@Nullable List<Offer> offers, @Nullable String errorMessage) {
