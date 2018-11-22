@@ -56,7 +56,7 @@ class StreamViewModelHolder extends RecyclerView.ViewHolder {
     @BindString(R.string.translation_not_available)
     String translationNotAvailable;
 
-    private Context context;
+    private final Context context;
 
     private static final LinearLayout.LayoutParams LAYOUT_PARAMS = new LinearLayout.LayoutParams(
             LinearLayout.LayoutParams.WRAP_CONTENT,

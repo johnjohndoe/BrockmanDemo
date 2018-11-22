@@ -12,7 +12,7 @@ import info.metadude.android.brockman.demo.models.StreamViewModel;
 
 class StreamViewModelsAdapter extends RecyclerView.Adapter<StreamViewModelHolder> {
 
-    private List<StreamViewModel> streamViewModels;
+    private final List<StreamViewModel> streamViewModels;
 
     StreamViewModelsAdapter(List<StreamViewModel> streamViewModels) {
         this.streamViewModels = streamViewModels;
