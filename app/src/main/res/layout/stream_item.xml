@@ -54,7 +54,6 @@
                 android:id="@+id/stream_video_size"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="4dp"
                 android:layout_marginStart="4dp"
                 android:gravity="end"
                 tools:text="1920 x 1080" />

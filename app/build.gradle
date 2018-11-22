@@ -1,13 +1,13 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 27
+    compileSdkVersion 28
     buildToolsVersion "28.0.3"
 
     defaultConfig {
         applicationId "info.metadude.android.brockman.demo"
         minSdkVersion 22
-        targetSdkVersion 27
+        targetSdkVersion 28
         versionCode 1
         versionName "1.0.0"
     }
@@ -22,13 +22,13 @@ android {
     productFlavors {
         dev {
             buildConfigField "String", "STREAMING_API_BASE_URL",
-                    "\"http://gist.githubusercontent.com\""
+                    "\"https://gist.githubusercontent.com\""
             buildConfigField "String", "STREAMING_API_OFFERS_PATH",
                     "\"/johnjohndoe/617bbfa2ac36f5148a049548b419e299/raw/7ab4e206f19ed4d63a67917fe6e3a15a96218ac9/streams-v2.json\""
         }
         live {
             buildConfigField "String", "STREAMING_API_BASE_URL",
-                    "\"http://streaming.media.ccc.de\""
+                    "\"https://streaming.media.ccc.de\""
             buildConfigField "String", "STREAMING_API_OFFERS_PATH",
                     "\"/streams/v2.json\""
         }
@@ -40,7 +40,7 @@ ext {
     butterknifeVersion = "8.8.1"
     okHttpVersion = "3.12.0"
     picassoVersion = "2.5.2"
-    supportLibVersion = "27.1.1"
+    supportLibVersion = "28.0.0"
 }
 
 dependencies {
