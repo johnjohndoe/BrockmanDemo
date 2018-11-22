@@ -54,7 +54,7 @@ dependencies {
     implementation "com.android.support:cardview-v7:$supportLibVersion"
     implementation "com.jakewharton:butterknife:$butterknifeVersion"
     annotationProcessor "com.jakewharton:butterknife-compiler:$butterknifeVersion"
-    implementation "com.github.johnjohndoe:Brockman:bedeb5826f7ef9f0a428dd90207d4df75ef57083"
+    implementation "com.github.johnjohndoe:Brockman:719353521187ff16d867ee2786871ede573f8acf"
     implementation "com.squareup.okhttp3:okhttp:$okHttpVersion"
     implementation "com.squareup.okhttp3:logging-interceptor:$okHttpVersion"
     implementation "com.squareup.picasso:picasso:$picassoVersion"
