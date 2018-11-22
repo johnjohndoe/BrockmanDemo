@@ -6,7 +6,7 @@
     android:gravity="center"
     android:orientation="vertical"
     tools:context=".MainActivity"
-    tools:menu="reports_chart">
+    tools:menu="@menu/main">
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/offers_recycler_view"
