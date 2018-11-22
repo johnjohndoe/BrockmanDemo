@@ -2,7 +2,6 @@ package info.metadude.android.brockman.demo;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
-import android.support.v4.widget.Space;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.text.method.LinkMovementMethod;
@@ -11,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.Space;
 import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
