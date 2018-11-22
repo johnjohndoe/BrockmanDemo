@@ -19,14 +19,19 @@ android {
         }
     }
 
+    def defaultDimension = "default"
+    flavorDimensions defaultDimension
+
     productFlavors {
         dev {
+            dimension defaultDimension
             buildConfigField "String", "STREAMING_API_BASE_URL",
                     "\"https://gist.githubusercontent.com\""
             buildConfigField "String", "STREAMING_API_OFFERS_PATH",
                     "\"/johnjohndoe/617bbfa2ac36f5148a049548b419e299/raw/7ab4e206f19ed4d63a67917fe6e3a15a96218ac9/streams-v2.json\""
         }
         live {
+            dimension defaultDimension
             buildConfigField "String", "STREAMING_API_BASE_URL",
                     "\"https://streaming.media.ccc.de\""
             buildConfigField "String", "STREAMING_API_OFFERS_PATH",
@@ -44,13 +49,13 @@ ext {
 }
 
 dependencies {
-    compile "com.android.support:appcompat-v7:$supportLibVersion"
-    compile "com.android.support:recyclerview-v7:$supportLibVersion"
-    compile "com.android.support:cardview-v7:$supportLibVersion"
-    compile "com.jakewharton:butterknife:$butterknifeVersion"
+    implementation "com.android.support:appcompat-v7:$supportLibVersion"
+    implementation "com.android.support:recyclerview-v7:$supportLibVersion"
+    implementation "com.android.support:cardview-v7:$supportLibVersion"
+    implementation "com.jakewharton:butterknife:$butterknifeVersion"
     annotationProcessor "com.jakewharton:butterknife-compiler:$butterknifeVersion"
-    compile "com.github.johnjohndoe:Brockman:bedeb5826f7ef9f0a428dd90207d4df75ef57083"
-    compile "com.squareup.okhttp3:okhttp:$okHttpVersion"
-    compile "com.squareup.okhttp3:logging-interceptor:$okHttpVersion"
-    compile "com.squareup.picasso:picasso:$picassoVersion"
+    implementation "com.github.johnjohndoe:Brockman:bedeb5826f7ef9f0a428dd90207d4df75ef57083"
+    implementation "com.squareup.okhttp3:okhttp:$okHttpVersion"
+    implementation "com.squareup.okhttp3:logging-interceptor:$okHttpVersion"
+    implementation "com.squareup.picasso:picasso:$picassoVersion"
 }

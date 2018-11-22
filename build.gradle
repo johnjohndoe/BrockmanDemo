@@ -3,10 +3,11 @@ apply plugin: "com.github.ben-manes.versions"
 
 buildscript {
     repositories {
+        google()
         jcenter()
     }
     dependencies {
-        classpath "com.android.tools.build:gradle:2.3.2"
+        classpath "com.android.tools.build:gradle:3.2.1"
         classpath "com.github.ben-manes:gradle-versions-plugin:0.20.0"
     }
 }
@@ -15,7 +16,7 @@ allprojects {
     repositories {
         jcenter()
         mavenLocal()
-        maven { url "https://maven.google.com" }
+        google()
         maven { url "https://jitpack.io" }
     }
 }
