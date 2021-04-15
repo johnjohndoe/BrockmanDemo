@@ -14,7 +14,6 @@ android:
     - tools
     - platform-tools
     - build-tools-29.0.3
-    - android-28
 
     # The libraries we can't get from Maven Central or similar
     - extra
@@ -32,6 +31,9 @@ before_script:
 
   # Ensure Gradle wrapper is executable
   - chmod +x gradlew
+
+before_install:
+- yes | sdkmanager "platforms;android-30"
 
 script:
   - ./gradlew clean assembleDevDebug
