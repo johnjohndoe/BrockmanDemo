@@ -43,7 +43,7 @@ android {
 
 ext {
     butterknifeVersion = "8.8.1"
-    okHttpVersion = "3.12.8"
+    okHttpVersion = "3.12.13"
     picassoVersion = "2.5.2"
     supportLibVersion = "28.0.0"
 }
