@@ -72,7 +72,7 @@ class StreamViewModelHolder extends RecyclerView.ViewHolder {
         if (TextUtils.isEmpty(thumbnailUrl)) {
             thumbnailView.setVisibility(View.GONE);
         } else {
-            Picasso.with(context)
+            Picasso.get()
                     .load(thumbnailUrl)
                     .resize(213, 120)
                     .centerCrop()

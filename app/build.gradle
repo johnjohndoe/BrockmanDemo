@@ -47,7 +47,7 @@ android {
 
 ext {
     okHttpVersion = "3.12.13"
-    picassoVersion = "2.5.2"
+    picassoVersion = "2.8"
 }
 
 dependencies {
