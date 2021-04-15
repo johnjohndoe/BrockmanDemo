@@ -1,8 +1,6 @@
 package info.metadude.android.brockman.demo;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
-import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.text.method.LinkMovementMethod;
 import android.text.util.Linkify;
@@ -13,59 +11,49 @@ import android.widget.LinearLayout;
 import android.widget.Space;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
-import butterknife.BindString;
-import butterknife.BindView;
-import butterknife.ButterKnife;
+import info.metadude.android.brockman.demo.databinding.StreamItemBinding;
 import info.metadude.android.brockman.demo.models.StreamViewModel;
 import info.metadude.java.library.brockman.models.Url;
 import info.metadude.java.library.brockman.models.VideoSize;
 
 class StreamViewModelHolder extends RecyclerView.ViewHolder {
 
-    @BindView(R.id.stream_slug)
-    TextView slugTextView;
-
-    @BindView(R.id.stream_display)
-    TextView displayTextView;
-
-    @BindView(R.id.stream_type)
-    TextView typeTextView;
-
-    @BindView(R.id.stream_is_translated)
-    TextView isTranslatedTextView;
-
-    @BindView(R.id.stream_video_size)
-    TextView videoSizeTextView;
-
-    @BindView(R.id.room_thumbnail)
-    ImageView thumbnailView;
-
-    @BindView(R.id.stream_urls)
-    LinearLayout urlsLayout;
-
-    @BindView(R.id.room_link)
-    TextView roomLinkTextView;
-
-    @BindString(R.string.translation_available)
-    String translationAvailable;
-
-    @BindString(R.string.translation_not_available)
-    String translationNotAvailable;
-
+    private final TextView slugTextView;
+    private final TextView displayTextView;
+    private final TextView typeTextView;
+    private final TextView isTranslatedTextView;
+    private final TextView videoSizeTextView;
+    private final ImageView thumbnailView;
+    private final LinearLayout urlsLayout;
+    private final TextView roomLinkTextView;
+    private final String translationAvailable;
+    private final String translationNotAvailable;
     private final Context context;
 
     private static final LinearLayout.LayoutParams LAYOUT_PARAMS = new LinearLayout.LayoutParams(
             LinearLayout.LayoutParams.WRAP_CONTENT,
             LinearLayout.LayoutParams.WRAP_CONTENT);
 
-    StreamViewModelHolder(View itemView) {
-        super(itemView);
-        context = itemView.getContext();
-        ButterKnife.bind(this, itemView);
+    StreamViewModelHolder(@NonNull StreamItemBinding streamItemBinding) {
+        super(streamItemBinding.getRoot());
+        context = streamItemBinding.getRoot().getContext();
+        slugTextView = streamItemBinding.streamSlug;
+        displayTextView = streamItemBinding.streamDisplay;
+        typeTextView = streamItemBinding.streamType;
+        isTranslatedTextView = streamItemBinding.streamIsTranslated;
+        videoSizeTextView = streamItemBinding.streamVideoSize;
+        thumbnailView = streamItemBinding.roomThumbnail;
+        urlsLayout = streamItemBinding.streamUrls;
+        roomLinkTextView = streamItemBinding.roomLink;
+        translationAvailable = context.getResources().getString(R.string.translation_available);
+        translationNotAvailable = context.getResources().getString(R.string.translation_not_available);
     }
 
     void bind(StreamViewModel streamViewModel) {
@@ -84,7 +72,7 @@ class StreamViewModelHolder extends RecyclerView.ViewHolder {
         if (TextUtils.isEmpty(thumbnailUrl)) {
             thumbnailView.setVisibility(View.GONE);
         } else {
-            Picasso.with(context)
+            Picasso.get()
                     .load(thumbnailUrl)
                     .resize(213, 120)
                     .centerCrop()

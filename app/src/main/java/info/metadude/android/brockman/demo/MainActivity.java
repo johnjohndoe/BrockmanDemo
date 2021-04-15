@@ -1,23 +1,23 @@
 package info.metadude.android.brockman.demo;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
+import info.metadude.android.brockman.demo.databinding.ActivityMainBinding;
 import info.metadude.android.brockman.demo.models.StreamViewModel;
 import info.metadude.android.brockman.demo.models.StreamViewModelBuilder;
 import info.metadude.java.library.brockman.ApiModule;
@@ -34,19 +34,17 @@ import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
 
-    @BindView(R.id.offers_recycler_view)
-    RecyclerView mOffersRecyclerView;
-
-    @BindView(R.id.offers_empty)
-    TextView mOffersEmptyView;
-
+    private RecyclerView mOffersRecyclerView;
+    private TextView mOffersEmptyView;
     private StreamsService mStreamsService;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        ButterKnife.bind(this);
+        ActivityMainBinding binding = ActivityMainBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
+        mOffersRecyclerView = binding.offersRecyclerView;
+        mOffersEmptyView = binding.offersEmpty;
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
             actionBar.setDisplayShowHomeEnabled(true);

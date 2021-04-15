@@ -1,13 +1,14 @@
 package info.metadude.android.brockman.demo;
 
-import android.support.annotation.NonNull;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
+
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
+import info.metadude.android.brockman.demo.databinding.StreamItemBinding;
 import info.metadude.android.brockman.demo.models.StreamViewModel;
 
 class StreamViewModelsAdapter extends RecyclerView.Adapter<StreamViewModelHolder> {
@@ -22,8 +23,8 @@ class StreamViewModelsAdapter extends RecyclerView.Adapter<StreamViewModelHolder
     @Override
     public StreamViewModelHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
-        View streamViewItem = layoutInflater.inflate(R.layout.stream_item, parent, false);
-        return new StreamViewModelHolder(streamViewItem);
+        StreamItemBinding binding = StreamItemBinding.inflate(layoutInflater, parent, false);
+        return new StreamViewModelHolder(binding);
     }
 
     @Override
