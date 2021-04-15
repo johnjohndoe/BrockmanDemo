@@ -52,9 +52,9 @@ ext {
 }
 
 dependencies {
-    implementation "com.android.support:appcompat-v7:$supportLibVersion"
-    implementation "com.android.support:recyclerview-v7:$supportLibVersion"
-    implementation "com.android.support:cardview-v7:$supportLibVersion"
+    implementation "androidx.appcompat:appcompat:1.2.0"
+    implementation "androidx.recyclerview:recyclerview:1.2.0"
+    implementation "androidx.cardview:cardview:1.0.0"
     implementation "com.github.johnjohndoe:Brockman:1d3612e6e91c5bbf8d9a186545bc5abb402c9fab"
     implementation "com.squareup.okhttp3:okhttp:$okHttpVersion"
     implementation "com.squareup.okhttp3:logging-interceptor:$okHttpVersion"
