@@ -16,8 +16,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
+import info.metadude.android.brockman.demo.databinding.ActivityMainBinding;
 import info.metadude.android.brockman.demo.models.StreamViewModel;
 import info.metadude.android.brockman.demo.models.StreamViewModelBuilder;
 import info.metadude.java.library.brockman.ApiModule;
@@ -34,19 +33,17 @@ import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
 
-    @BindView(R.id.offers_recycler_view)
-    RecyclerView mOffersRecyclerView;
-
-    @BindView(R.id.offers_empty)
-    TextView mOffersEmptyView;
-
+    private RecyclerView mOffersRecyclerView;
+    private TextView mOffersEmptyView;
     private StreamsService mStreamsService;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        ButterKnife.bind(this);
+        ActivityMainBinding binding = ActivityMainBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
+        mOffersRecyclerView = binding.offersRecyclerView;
+        mOffersEmptyView = binding.offersEmpty;
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
             actionBar.setDisplayShowHomeEnabled(true);
